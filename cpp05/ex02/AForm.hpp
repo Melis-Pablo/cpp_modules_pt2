@@ -17,6 +17,7 @@ class AForm {
 		void checkExecution(const Bureaucrat &executor) const;
 	public:
 	// Canonical Form
+		AForm();	// Default Constructor
 		AForm(std::string name, int gradeRequiredToSign, int gradeRequiredToExecute);	// Default Constructor with parameters
 		AForm(const AForm &other);	// Copy Constructor
 		AForm &operator=(const AForm &other);	// Assignation operator

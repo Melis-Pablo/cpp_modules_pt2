@@ -15,6 +15,7 @@ class Form {
 		void validateGrades(int gradeToSign, int gradeToExecute) const;
 	public:
 	// Canonical Form
+		Form();	// Default Constructor
 		Form(std::string name, int gradeRequiredToSign, int gradeRequiredToExecute);	// Default Constructor with parameters
 		Form(const Form &other);	// Copy Constructor
 		Form &operator=(const Form &other);	// Assignation operator

@@ -1,137 +1,164 @@
-#include "Bureaucrat.hpp"
+#include <iostream>
 #include "Intern.hpp"
-#include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "Bureaucrat.hpp"
 
+// Color definitions
 #define RESET   "\033[0m"
-#define RED     "\033[31m"
-#define GREEN   "\033[32m"
-#define YELLOW  "\033[33m"
-#define BLUE    "\033[34m"
-#define MAGENTA "\033[35m"
-#define CYAN    "\033[36m"
-#define BOLD    "\033[1m"
+#define RED     "\033[31m"      // Failed tests
+#define GREEN   "\033[32m"      // Passed tests
+#define YELLOW  "\033[33m"      // Section headers
+#define BLUE    "\033[34m"      // Expected exceptions/warnings
+#define CYAN    "\033[36m"      // Informational output
 
-int main()
-{
-    std::cout << BOLD << BLUE << "\n=== Intern Form Creation Tests ===" << RESET << std::endl;
+// Utility functions
+void printHeader(const std::string& header) {
+    std::cout << std::endl << YELLOW << "=== " << header << " ===" << RESET << std::endl;
+}
 
-    // Test 1: Create an Intern
-    std::cout << CYAN << "\nCreating Intern..." << RESET << std::endl;
-    Intern intern;
+void printTestResult(const std::string& testName, bool success) {
+    std::cout << (success ? GREEN : RED) << testName << ": " << (success ? "PASS" : "FAIL") << RESET << std::endl;
+}
 
-    // Test 2: Create Presidential Pardon Form
-    std::cout << CYAN << "\nTesting Presidential Pardon Form creation..." << RESET << std::endl;
-    try {
-        AForm* form = intern.makeForm("presidential pardon", "Target1");
-        std::cout << GREEN << "Success: " << RESET << *form;
-        delete form;  // Don't forget to clean up!
-    } catch (std::exception& e) {
-        std::cout << RED << "Exception caught: " << e.what() << RESET << std::endl;
-    }
-
-    // Test 3: Create Robotomy Request Form
-    std::cout << CYAN << "\nTesting Robotomy Request Form creation..." << RESET << std::endl;
-    try {
-        AForm* form = intern.makeForm("robotomy request", "Target2");
-        std::cout << GREEN << "Success: " << RESET << *form;
-        delete form;
-    } catch (std::exception& e) {
-        std::cout << RED << "Exception caught: " << e.what() << RESET << std::endl;
-    }
-
-    // Test 4: Create Shrubbery Creation Form
-    std::cout << CYAN << "\nTesting Shrubbery Creation Form creation..." << RESET << std::endl;
-    try {
-        AForm* form = intern.makeForm("shrubbery creation", "Target3");
-        std::cout << GREEN << "Success: " << RESET << *form;
-        delete form;
-    } catch (std::exception& e) {
-        std::cout << RED << "Exception caught: " << e.what() << RESET << std::endl;
-    }
-
-    // Test 5: Try to create invalid form
-    std::cout << CYAN << "\nTesting invalid form creation..." << RESET << std::endl;
-    try {
-        AForm* form = intern.makeForm("invalid form", "Target4");
-        delete form;
-    } catch (std::exception& e) {
-        std::cout << RED << "Exception caught: " << e.what() << RESET << std::endl;
-    }
-
-    std::cout << BOLD << BLUE << "\n=== Complete Workflow Tests ===" << RESET << std::endl;
-
-    // Test 6: Complete workflow test
-    std::cout << CYAN << "\nTesting complete workflow..." << RESET << std::endl;
+int main() {
+    // Canonical Form Tests
     {
-        Bureaucrat boss("Boss", 1);  // Highest rank
-        Bureaucrat intern_worker("Intern", 150);  // Lowest rank
-        AForm* form = intern.makeForm("presidential pardon", "Target5");
+        printHeader("Canonical Form Tests");
 
-        std::cout << YELLOW << "\nTrying to execute unsigned form..." << RESET << std::endl;
         try {
-            boss.executeForm(*form);
-        } catch (std::exception& e) {
-            std::cout << RED << "Exception: " << e.what() << RESET << std::endl;
-        }
+            // Default constructor
+            Intern intern1;
 
-        std::cout << YELLOW << "\nHaving low-level intern sign form..." << RESET << std::endl;
-        try {
-            intern_worker.signForm(*form);
-        } catch (std::exception& e) {
-            std::cout << RED << "Exception: " << e.what() << RESET << std::endl;
-        }
+            // Copy constructor
+            Intern intern2(intern1);
 
-        std::cout << YELLOW << "\nHaving boss sign form..." << RESET << std::endl;
-        try {
-            boss.signForm(*form);
-        } catch (std::exception& e) {
-            std::cout << RED << "Exception: " << e.what() << RESET << std::endl;
-        }
+            // Assignment operator
+            Intern intern3;
+            intern3 = intern1;
 
-        std::cout << YELLOW << "\nHaving low-level intern execute form..." << RESET << std::endl;
-        try {
-            intern_worker.executeForm(*form);
+            printTestResult("Canonical form implementation", true);
         } catch (std::exception& e) {
-            std::cout << RED << "Exception: " << e.what() << RESET << std::endl;
+            std::cout << RED << "Unexpected exception: " << e.what() << RESET << std::endl;
+            printTestResult("Canonical form implementation", false);
         }
-
-        std::cout << YELLOW << "\nHaving boss execute form..." << RESET << std::endl;
-        try {
-            boss.executeForm(*form);
-        } catch (std::exception& e) {
-            std::cout << RED << "Exception: " << e.what() << RESET << std::endl;
-        }
-
-        delete form;
     }
 
-    std::cout << BOLD << BLUE << "\n=== PDF Example Test ===" << RESET << std::endl;
+    // Form Creation Tests
+    {
+        printHeader("Form Creation Tests");
 
-        // Test 7: PDF example code
-        std::cout << CYAN << "\nTesting example from PDF (Bender robotomy)..." << RESET << std::endl;
-        {
-            try {
-                Intern someRandomIntern;
-                AForm* rrf;
+        Intern intern;
+        Bureaucrat bureaucrat("Tester", 1);  // Highest grade to sign/execute all forms
 
-                std::cout << YELLOW << "Creating robotomy form for Bender..." << RESET << std::endl;
-                rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        // Presidential Pardon Form
+        try {
+            AForm* form = intern.makeForm("presidential pardon", "Target1");
+            bool success = (form != nullptr &&
+                          dynamic_cast<PresidentialPardonForm*>(form) != nullptr);
+            printTestResult("Create Presidential Pardon Form", success);
 
-                // Let's also test the form to see it in action
-                Bureaucrat boss("Big Boss", 1);
-                std::cout << YELLOW << "\nHaving boss sign and execute the form..." << RESET << std::endl;
-                boss.signForm(*rrf);
-                boss.executeForm(*rrf);
-
-                delete rrf;  // Don't forget to clean up!
+            // Test the created form
+            if (form) {
+                bureaucrat.signForm(*form);
+                bureaucrat.executeForm(*form);
+                delete form;
             }
-            catch (std::exception& e) {
-                std::cout << RED << "Exception caught: " << e.what() << RESET << std::endl;
-            }
+        } catch (std::exception& e) {
+            std::cout << RED << "Unexpected exception: " << e.what() << RESET << std::endl;
+            printTestResult("Create Presidential Pardon Form", false);
         }
+
+        // Robotomy Request Form
+        try {
+            AForm* form = intern.makeForm("robotomy request", "Target2");
+            bool success = (form != nullptr &&
+                          dynamic_cast<RobotomyRequestForm*>(form) != nullptr);
+            printTestResult("Create Robotomy Request Form", success);
+
+            // Test the created form
+            if (form) {
+                bureaucrat.signForm(*form);
+                bureaucrat.executeForm(*form);
+                delete form;
+            }
+        } catch (std::exception& e) {
+            std::cout << RED << "Unexpected exception: " << e.what() << RESET << std::endl;
+            printTestResult("Create Robotomy Request Form", false);
+        }
+
+        // Shrubbery Creation Form
+        try {
+            AForm* form = intern.makeForm("shrubbery creation", "Target3");
+            bool success = (form != nullptr &&
+                          dynamic_cast<ShrubberyCreationForm*>(form) != nullptr);
+            printTestResult("Create Shrubbery Creation Form", success);
+
+            // Test the created form
+            if (form) {
+                bureaucrat.signForm(*form);
+                bureaucrat.executeForm(*form);
+                delete form;
+            }
+        } catch (std::exception& e) {
+            std::cout << RED << "Unexpected exception: " << e.what() << RESET << std::endl;
+            printTestResult("Create Shrubbery Creation Form", false);
+        }
+    }
+
+    // Error Cases
+    {
+        printHeader("Error Cases");
+
+        Intern intern;
+
+        // Test with invalid form name
+        try {
+            AForm* form = intern.makeForm("invalid form", "Target");
+            if (form) {
+                delete form;
+            }
+            printTestResult("Handle invalid form name", false);
+        } catch (Intern::FormNotFoundException& e) {
+            std::cout << BLUE << "Expected error: " << e.what() << RESET << std::endl;
+            printTestResult("Handle invalid form name", true);
+        } catch (std::exception& e) {
+            std::cout << RED << "Unexpected exception type: " << e.what() << RESET << std::endl;
+            printTestResult("Handle invalid form name", false);
+        }
+
+        // Test with case sensitivity
+        try {
+            AForm* form = intern.makeForm("PRESIDENTIAL PARDON", "Target");
+            if (form) {
+                delete form;
+            }
+            printTestResult("Handle case sensitive form name", false);
+        } catch (Intern::FormNotFoundException& e) {
+            std::cout << BLUE << "Expected error: " << e.what() << RESET << std::endl;
+            printTestResult("Handle case sensitive form name", true);
+        }
+    }
+
+    // Multiple Interns Test
+    {
+        printHeader("Multiple Interns Test");
+
+        try {
+            Intern intern1;
+            Intern intern2;
+
+            AForm* form1 = intern1.makeForm("robotomy request", "Target1");
+            AForm* form2 = intern2.makeForm("presidential pardon", "Target2");
+
+            bool success = (form1 != nullptr && form2 != nullptr);
+            printTestResult("Multiple interns creating forms", success);
+
+            delete form1;
+            delete form2;
+        } catch (std::exception& e) {
+            std::cout << RED << "Unexpected exception: " << e.what() << RESET << std::endl;
+            printTestResult("Multiple interns creating forms", false);
+        }
+    }
 
     return 0;
 }

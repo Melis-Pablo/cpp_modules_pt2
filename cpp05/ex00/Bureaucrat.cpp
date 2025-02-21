@@ -1,6 +1,10 @@
 #include "Bureaucrat.hpp"
 
 // Canonical Form
+// Default Constructor
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {
+}
+
 // Default Constructor with parameters (Must have a name and a grade)
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) {
 	validateGrade(grade);
@@ -15,6 +19,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(oth
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
 	if (this != &other) {
 		_grade = other._grade;
+		// Name is const, so it cannot be changed
 	}
 	return *this;
 }

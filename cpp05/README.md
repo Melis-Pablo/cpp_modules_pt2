@@ -79,6 +79,7 @@ You are not coding in C anymore. Time to C++! Therefore:
 | Turn-in directory:   | ex00/                                                   |
 | Files to turn in:    | Makefile, main.cpp, Bureaucrat.{h, hpp}, Bureaucrat.cpp |
 | Forbidden functions: | None                                                    |
+
 >[!info]
 >Please note that exception classes don’t have to be designed in Orthodox Canonical Form. But every other class has to.
 
@@ -89,6 +90,7 @@ First, start by the smallest cog in this vast bureaucratic machine: the **Bureau
 A **Bureaucrat** must have:
 - A constant name.
 - And a grade that ranges from 1 (highest possible grade) to 150 (lowest possible grade).
+
 Any attempt to instantiate a Bureaucrat using an invalid grade must throw an exception:
 
 either a Bureaucrat::GradeTooHighException or a Bureaucrat::GradeTooLowException.
@@ -123,6 +125,7 @@ As usual, turn in some tests to prove everything works as expected.
 | Turn-in directory:   | ex01/                                                 |
 | Files to turn in:    | Files from previous exercise + Form.{h,hpp}, Form.cpp |
 | Forbidden functions: | None                                                  |
+
 Now that you have bureaucrats, let’s give them something to do. What better activity could there be than the one of filling out a stack of forms?
 
 Then, let's make a **Form** class. It has:
@@ -150,11 +153,11 @@ Implement and turn in some tests to ensure everything works as expected.
 ## 5. Exercise 02: No, you need form 28B, not 28C...
 ---
 
-| Exercise:            | 02                                                                                                                                                                                                       |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Turn-in directory:   | ex02/                                                                                                                                                                                                    |
-| Files to turn in:    |  Makefile, main.cpp, Bureaucrat.[{h, hpp},cpp], Bureaucrat.cpp + AForm.[{h, hpp},cpp], ShrubberyCreationForm.[{h, hpp},cpp], + RobotomyRequestForm.[{h, hpp},cpp], PresidentialPardonForm.[{h, hpp},cpp] |
-| Forbidden functions: | None                                                                                                                                                                                                     |
+| Exercise:            | 02                                                                                                                                                                                                      |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Turn-in directory:   | ex02/                                                                                                                                                                                                   |
+| Files to turn in:    | Makefile, main.cpp, Bureaucrat.[{h, hpp},cpp], Bureaucrat.cpp + AForm.[{h, hpp},cpp], ShrubberyCreationForm.[{h, hpp},cpp], + RobotomyRequestForm.[{h, hpp},cpp], PresidentialPardonForm.[{h, hpp},cpp] |
+| Forbidden functions: | None                                                                                                                                                                                                    |
 
 Since you now have basic forms, it’s time to make a few more that actually do something.
 

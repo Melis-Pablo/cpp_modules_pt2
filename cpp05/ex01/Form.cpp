@@ -2,6 +2,10 @@
 
 // Canonical Form
 // Default constructor
+Form::Form() : _name("default"), _gradeRequiredToSign(1), _gradeRequiredToExecute(1), _signed(false) {
+}
+
+// Default constructor
 Form::Form(std::string name, int gradeRequiredToSign, int gradeRequiredToExecute) : _name(name), _gradeRequiredToSign(gradeRequiredToSign), _gradeRequiredToExecute(gradeRequiredToExecute), _signed(false) {
 	validateGrades(gradeRequiredToSign, gradeRequiredToExecute);
 }

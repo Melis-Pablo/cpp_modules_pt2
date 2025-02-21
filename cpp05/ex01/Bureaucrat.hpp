@@ -15,6 +15,7 @@ class Bureaucrat
 		void validateGrade(int grade) const;
 	public:
 	// Canonical Form
+		Bureaucrat();	// Default Constructor
 		Bureaucrat(const std::string& name, int grade);	// Default Constructor with parameters
 		Bureaucrat(const Bureaucrat& other);	// Copy Constructor
 		Bureaucrat& operator=(const Bureaucrat& other);	// Assignment Operator
