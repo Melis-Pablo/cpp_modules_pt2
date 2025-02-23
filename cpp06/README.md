@@ -1,4 +1,4 @@
-# C++ Module 06
+# C++ - Module 06
 
 ### C++ casts
 ---
@@ -87,7 +87,7 @@ For each exercise, the type conversion must be solved using one specific type of
 | Files to turn in:  | Makefile, \*.cpp, \*.{h, hpp}                                                                                     |
 | Allowed functions: | Any function to convert from a string to an int, a float or a double. This will help, but won’t do the whole job. |
 
-Write a class ScalarConverter that will contain only one static method "convert" that will takes as parameter a string representation of a C++ literal in its most common form and output its value in the following serie of scalar types :
+Write a class ScalarConverter that will contain only one static method "convert" that will takes as parameter a string representation of a C++ literal in its most common form and output its value in the following serie of scalar types:
 - char
 - int
 - float
@@ -105,9 +105,6 @@ You have to handle these pseudo literals as well (you know, for science): -inff,
 
 	Examples of double literals: 0.0, -4.2, 4.2...
 You have to handle these pseudo literals as well (you know, for fun):   -inf, +inf and nan.
-
-
-
 
 Write a program to test that your class works as expected.
 
