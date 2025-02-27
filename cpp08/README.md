@@ -3,8 +3,8 @@
 ### Templated containers, iterators, algorithms
 ---
 
->[!summary]
->This document contains the exercises of Module 08 from C++ modules.
+>[!note]
+>Summary: This document contains the exercises of Module 08 from C++ modules.
 >Version: 8
 
 ## 0. Contents
@@ -25,6 +25,7 @@ C++ is a general-purpose programming language created by Bjarne Stroustrup as an
 
 The goal of these modules is to introduce you to **Object-Oriented Programming**. This will be the starting point of your C++ journey. Many languages are recommended to learn OOP. We decided to choose C++ since it’s derived from your old friend C. Because this is a complex language, and in order to keep things simple, your code will comply with the C++98 standard.
 We are aware modern C++ is way different in a lot of aspects. So if you want to become a proficient C++ developer, it’s up to you to go further after the 42 Common Core!
+
 ## 2. General Rules
 ---
 
@@ -63,13 +64,13 @@ You are not coding in C anymore. Time to C++! Therefore:
 - Read each module completely before starting! Really, do it.
 - By Odin, by Thor! Use your brain!!!
 
->[!caution]
+>[!warning]
 >Regarding the Makefile for C++ projects, the same rules as in C apply (see the Norm chapter about the Makefile).
 
 >[!tip]
 >You will have to implement a lot of classes. This can seem tedious, unless you’re able to script your favorite text editor.
 
->[!info]
+>[!note]
 >You are given a certain amount of freedom to complete the exercises. However, follow the mandatory rules and don’t be lazy. You would miss a lot of useful information! Do not hesitate to read about theoretical concepts.
 
 ## 3. Module-specific rules
@@ -102,7 +103,7 @@ If no occurrence is found, you can either throw an exception or return an error 
 
 Of course, implement and turn in your own tests to ensure everything works as expected.
 
->[!info]
+>[!note]
 >You don't have to handle associative containers.
 
 ## 5. Exercise 01: Span

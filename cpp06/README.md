@@ -3,8 +3,8 @@
 ### C++ casts
 ---
 
->[!summary]
->This document contains the exercises of Module 06 from C++ modules.
+>[!note]
+>Summary: This document contains the exercises of Module 06 from C++ modules.
 >Version: 6.2
 
 ## 0. Contents
@@ -17,6 +17,7 @@
 5. Exercise 01: Serialization
 6. Exercise 02: Identify real type
 7. Submission and peer-evaluation
+
 ## 1. Introduction
 ---
 
@@ -24,6 +25,7 @@ C++ is a general-purpose programming language created by Bjarne Stroustrup as an
 
 The goal of these modules is to introduce you to **Object-Oriented Programming**. This will be the starting point of your C++ journey. Many languages are recommended to learn OOP. We decided to choose C++ since it’s derived from your old friend C. Because this is a complex language, and in order to keep things simple, your code will comply with the C++98 standard.
 We are aware modern C++ is way different in a lot of aspects. So if you want to become a proficient C++ developer, it’s up to you to go further after the 42 Common Core!
+
 ## 2. General Rules
 ---
 
@@ -62,13 +64,13 @@ You are not coding in C anymore. Time to C++! Therefore:
 - Read each module completely before starting! Really, do it.
 - By Odin, by Thor! Use your brain!!!
 
->[!caution]
+>[!warning]
 >Regarding the Makefile for C++ projects, the same rules as in C apply (see the Norm chapter about the Makefile).
 
 >[!tip]
 >You will have to implement a lot of classes. This can seem tedious, unless you’re able to script your favorite text editor.
 
->[!info]
+>[!note]
 >You are given a certain amount of freedom to complete the exercises. However, follow the mandatory rules and don’t be lazy. You would miss a lot of useful information! Do not hesitate to read about theoretical concepts.
 
 ## 3. Additional Rule
@@ -154,6 +156,7 @@ You must create a non-empty (it means it has data members) Data structure.
 Use serialize() on the address of the Data object and pass its return value to deserialize(). Then, ensure the return value of deserialize() compares equal to the original pointer.
 
 Do not forget to turn in the files of your Data structure.
+
 ## 6. Exercise 02: Identify real type
 ---
 
@@ -165,7 +168,7 @@ Do not forget to turn in the files of your Data structure.
 
 Implement a **Base** class that has a public virtual destructor only. Create three empty classes **A**, **B** and **C**, that publicly inherit from Base.
 
->[!info]
+>[!note]
 >These four classes don’t have to be designed in the Orthodox Canonical Form.
 
 Implement the following functions:
@@ -182,6 +185,7 @@ It prints the actual type of the object pointed to by p: "A", "B" or "C". Using 
 Including the typeinfo header is forbidden.
 
 Write a program to test that everything works as expected.
+
 ## 7. Submission and peer-evaluation
 ---
 

@@ -3,8 +3,8 @@
 ### STL
 ---
 
->[!summary]
->This document contains the exercises of Module 09 from C++ modules.
+>[!note]
+>Summary: This document contains the exercises of Module 09 from C++ modules.
 >Version: 2.2
 
 ## 0. Contents
@@ -25,6 +25,7 @@ C++ is a general-purpose programming language created by Bjarne Stroustrup as an
 
 The goal of these modules is to introduce you to **Object-Oriented Programming**. This will be the starting point of your C++ journey. Many languages are recommended to learn OOP. We decided to choose C++ since it’s derived from your old friend C. Because this is a complex language, and in order to keep things simple, your code will comply with the C++98 standard.
 We are aware modern C++ is way different in a lot of aspects. So if you want to become a proficient C++ developer, it’s up to you to go further after the 42 Common Core!
+
 ## 2. General Rules
 ---
 
@@ -63,13 +64,13 @@ You are not coding in C anymore. Time to C++! Therefore:
 - Read each module completely before starting! Really, do it.
 - By Odin, by Thor! Use your brain!!!
 
->[!caution]
+>[!warning]
 >Regarding the Makefile for C++ projects, the same rules as in C apply (see the Norm chapter about the Makefile).
 
 >[!tip]
 >You will have to implement a lot of classes. This can seem tedious, unless you’re able to script your favorite text editor.
 
->[!info]
+>[!note]
 >You are given a certain amount of freedom to complete the exercises. However, follow the mandatory rules and don’t be lazy. You would miss a lot of useful information! Do not hesitate to read about theoretical concepts.
 
 ## 3. Module-specific rules
@@ -79,7 +80,7 @@ It is mandatory to use the standard containers to perform each exercise in this 
 
 Once a container is used you cannot use it for the rest of the module.
 
->[!info]
+>[!note]
 >It is advisable to read the subject in its entirety before doing the exercises.
 
 >[!warning]
@@ -192,7 +193,7 @@ You must create a program with these constraints:
 >[!warning]
 >You must use at least one container in your code to validate this exercise.
 
->[!info]
+>[!note]
 >You don’t need to manage the brackets or decimal numbers.
 
 Here is an example of a standard use:
@@ -249,7 +250,7 @@ Here are some additional guidelines on the information you should display line b
 
 - On the last line you must display an explicit text indicating the time used by your algorithm by specifying the second container used to sort the positive integer sequence.
 
->[!info]
+>[!note]
 >The format for the display of the time used to carry out your sorting is free but the precision chosen must allow to clearly see the difference between the two containers used.
 
 Here is an example of a standard use:
@@ -278,7 +279,7 @@ $>
 >[!warning]
 >Warning: The container(s) you used in the previous exercises are forbidden here.
 
->[!info]
+>[!note]
 >The management of errors related to duplicates is left to your discretion.
 
 ## 7. Submission and peer-evaluation

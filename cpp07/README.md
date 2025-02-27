@@ -3,8 +3,8 @@
 ### C++ Templates
 ---
 
->[!summary]
->This document contains the exercises of Module 07 from C++ modules.
+>[!note]
+>Summary: This document contains the exercises of Module 07 from C++ modules.
 >Version: 7
 
 ## 0. Contents
@@ -16,6 +16,7 @@
 4. Exercise 01: Iter
 5. Exercise 02: Array
 6. Submission and peer-evaluation
+
 ## 1. Introduction
 ---
 
@@ -23,6 +24,7 @@ C++ is a general-purpose programming language created by Bjarne Stroustrup as an
 
 The goal of these modules is to introduce you to **Object-Oriented Programming**. This will be the starting point of your C++ journey. Many languages are recommended to learn OOP. We decided to choose C++ since it’s derived from your old friend C. Because this is a complex language, and in order to keep things simple, your code will comply with the C++98 standard.
 We are aware modern C++ is way different in a lot of aspects. So if you want to become a proficient C++ developer, it’s up to you to go further after the 42 Common Core!
+
 ## 2. General Rules
 ---
 
@@ -61,13 +63,13 @@ You are not coding in C anymore. Time to C++! Therefore:
 - Read each module completely before starting! Really, do it.
 - By Odin, by Thor! Use your brain!!!
 
->[!caution]
+>[!warning]
 >Regarding the Makefile for C++ projects, the same rules as in C apply (see the Norm chapter about the Makefile).
 
 >[!tip]
 >You will have to implement a lot of classes. This can seem tedious, unless you’re able to script your favorite text editor.
 
->[!info]
+>[!note]
 >You are given a certain amount of freedom to complete the exercises. However, follow the mandatory rules and don’t be lazy. You would miss a lot of useful information! Do not hesitate to read about theoretical concepts.
 
 ## 3. Exercise 00: Start with a few functions
@@ -89,7 +91,7 @@ Implement the following function templates:
 
 These functions can be called with any type of argument. The only requirement is that the two arguments must have the same type and must support all the comparison operators.
 
->[!info]
+>[!note]
 >Templates must be defined in the header files.
 
 Running the following code:
@@ -176,6 +178,7 @@ Tip: Try to compile int * a = new int(); then display *a.
 - A member function size() that returns the number of elements in the array. This member function takes no parameter and musn’t modify the current instance.
 
 As usual, ensure everything works as expected and turn in a main.cpp file that contains your tests.
+
 ## 6. Submission and peer-evaluation
 ---
 

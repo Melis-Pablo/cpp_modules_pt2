@@ -3,8 +3,8 @@
 ### Repetition and Exceptions
 ---
 
->[!summary]
->This document contains the exercises of Module 05 from C++ modules.
+>[!note]
+>Summary: This document contains the exercises of Module 05 from C++ modules.
 >Version: 10.2
 
 ## 0. Contents
@@ -17,6 +17,7 @@
 5. Exercise 02: No, you need form 28B, not 28C...
 6. Exercise 03: At least this beats coffee-making
 7. Submission and peer-evaluation
+
 ## 1. Introduction
 ---
 
@@ -24,6 +25,7 @@ C++ is a general-purpose programming language created by Bjarne Stroustrup as an
 
 The goal of these modules is to introduce you to **Object-Oriented Programming**. This will be the starting point of your C++ journey. Many languages are recommended to learn OOP. We decided to choose C++ since it’s derived from your old friend C. Because this is a complex language, and in order to keep things simple, your code will comply with the C++98 standard.
 We are aware modern C++ is way different in a lot of aspects. So if you want to become a proficient C++ developer, it’s up to you to go further after the 42 Common Core!
+
 ## 2. General Rules
 ---
 
@@ -62,13 +64,13 @@ You are not coding in C anymore. Time to C++! Therefore:
 - Read each module completely before starting! Really, do it.
 - By Odin, by Thor! Use your brain!!!
 
->[!caution]
+>[!warning]
 >Regarding the Makefile for C++ projects, the same rules as in C apply (see the Norm chapter about the Makefile).
 
 >[!tip]
 >You will have to implement a lot of classes. This can seem tedious, unless you’re able to script your favorite text editor.
 
->[!info]
+>[!note]
 >You are given a certain amount of freedom to complete the exercises. However, follow the mandatory rules and don’t be lazy. You would miss a lot of useful information! Do not hesitate to read about theoretical concepts.
 
 ## 3. Exercise 00: Mommy, when I grow up, I want to be a bureaucrat!
@@ -80,7 +82,7 @@ You are not coding in C anymore. Time to C++! Therefore:
 | Files to turn in:    | Makefile, main.cpp, Bureaucrat.{h, hpp}, Bureaucrat.cpp |
 | Forbidden functions: | None                                                    |
 
->[!info]
+>[!note]
 >Please note that exception classes don’t have to be designed in Orthodox Canonical Form. But every other class has to.
 
 Let’s design an artificial nightmare of offices, corridors, forms, and waiting queues. Sounds fun? No? Too bad.
@@ -97,10 +99,11 @@ either a Bureaucrat::GradeTooHighException or a Bureaucrat::GradeTooLowException
 
 You will provide getters for both these attributes: getName() and getGrade(). Implement also two member functions to increment or decrement the bureaucrat grade. If the grade is out of range, both of them will throw the same exceptions as the constructor.
 
->[!attention]
+>[!warning]
 >Remember. Since grade 1 is the highest one and 150 the lowest, incrementing a grade 3 should give a grade 2 to the bureaucrat.
 
 The thrown exceptions must be catchable using try and catch blocks:
+
 ```cpp
 try
 {
@@ -150,6 +153,7 @@ Otherwise, it will print something like:
 \<bureaucrat> couldn’t sign \<form> because \<reason>.
 
 Implement and turn in some tests to ensure everything works as expected.
+
 ## 5. Exercise 02: No, you need form 28B, not 28C...
 ---
 
@@ -182,6 +186,7 @@ Lastly, add the executeForm(AForm const & form) member function to the Bureaucra
 If not, print an explicit error message.
 
 Implement and turn in some tests to ensure everything works as expected.
+
 ## 6. Exercise 03: At least this beats coffee-making
 ---
 
@@ -213,6 +218,8 @@ For example, the code below creates a RobotomyRequestForm targeted on "Bender":
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 }
 ```
+
 ## 7. Submission and peer-evaluation
 ---
+
 Turn in your assignment in your Git repository as usual. Only the work inside your repository will be evaluated during the defense. Don’t hesitate to double check the names of your folders and files to ensure they are correct.
