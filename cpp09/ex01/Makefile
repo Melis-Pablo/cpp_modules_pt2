@@ -1,14 +1,14 @@
 # General Setup
-NAME = btc
-TEST_NAME = test_btc
+NAME = RPN
+TEST_NAME = test_rpn
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 # Files
-FILES = main BitcoinExchange
-TEST_FILES = test_btc BitcoinExchange
-HEADERS = BitcoinExchange.hpp
+FILES = main RPN
+TEST_FILES = test_rpn RPN
+HEADERS = RPN.hpp
 SRCS = $(FILES:=.cpp)
 TEST_SRCS = $(TEST_FILES:=.cpp)
 OBJDIR = .objs

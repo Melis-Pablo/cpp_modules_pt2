@@ -1,14 +1,14 @@
 # General Setup
-NAME = btc
-TEST_NAME = test_btc
+NAME = PmergeMe
+TEST_NAME = test_pmerge
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 # Files
-FILES = main BitcoinExchange
-TEST_FILES = test_btc BitcoinExchange
-HEADERS = BitcoinExchange.hpp
+FILES = main PmergeMe
+TEST_FILES = test_pmerge PmergeMe
+HEADERS = PmergeMe.hpp
 SRCS = $(FILES:=.cpp)
 TEST_SRCS = $(TEST_FILES:=.cpp)
 OBJDIR = .objs
