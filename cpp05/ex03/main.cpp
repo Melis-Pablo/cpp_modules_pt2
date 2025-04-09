@@ -52,8 +52,8 @@ int main() {
         // Presidential Pardon Form
         try {
             AForm* form = intern.makeForm("presidential pardon", "Target1");
-            bool success = (form != nullptr &&
-                          dynamic_cast<PresidentialPardonForm*>(form) != nullptr);
+            bool success = (form != NULL &&
+                          dynamic_cast<PresidentialPardonForm*>(form) != NULL);
             printTestResult("Create Presidential Pardon Form", success);
 
             // Test the created form
@@ -70,8 +70,8 @@ int main() {
         // Robotomy Request Form
         try {
             AForm* form = intern.makeForm("robotomy request", "Target2");
-            bool success = (form != nullptr &&
-                          dynamic_cast<RobotomyRequestForm*>(form) != nullptr);
+            bool success = (form != NULL &&
+                          dynamic_cast<RobotomyRequestForm*>(form) != NULL);
             printTestResult("Create Robotomy Request Form", success);
 
             // Test the created form
@@ -88,8 +88,8 @@ int main() {
         // Shrubbery Creation Form
         try {
             AForm* form = intern.makeForm("shrubbery creation", "Target3");
-            bool success = (form != nullptr &&
-                          dynamic_cast<ShrubberyCreationForm*>(form) != nullptr);
+            bool success = (form != NULL &&
+                          dynamic_cast<ShrubberyCreationForm*>(form) != NULL);
             printTestResult("Create Shrubbery Creation Form", success);
 
             // Test the created form
@@ -149,7 +149,7 @@ int main() {
             AForm* form1 = intern1.makeForm("robotomy request", "Target1");
             AForm* form2 = intern2.makeForm("presidential pardon", "Target2");
 
-            bool success = (form1 != nullptr && form2 != nullptr);
+            bool success = (form1 != NULL && form2 != NULL);
             printTestResult("Multiple interns creating forms", success);
 
             delete form1;
