@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <ctime>
+#include <exception>
 
 Base *generate(void);
 void identify(Base* p);

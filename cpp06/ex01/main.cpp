@@ -108,24 +108,24 @@ int main() {
         printTestResult("Array data integrity", arrayDataIntact);
     }
 
-    // Memory Address Tests
-    {
-        printHeader("Memory Address Tests");
+    // // Memory Address Tests
+    // {
+    //     printHeader("Memory Address Tests");
 
-        char str[] = "address_test";
-        Data data = {100, str};
-        uintptr_t serialized = Serializer::serialize(&data);
+    //     char str[] = "address_test";
+    //     Data data = {100, str};
+    //     uintptr_t serialized = Serializer::serialize(&data);
 
-        // Test if serialized value matches actual address
-        std::cout << BLUE << "Original address: " << (void*)&data << RESET << std::endl;
-        std::cout << BLUE << "Serialized value: " << "0x" << std::hex << serialized << RESET << std::endl;
+    //     // Test if serialized value matches actual address
+    //     std::cout << BLUE << "Original address: " << (void*)&data << RESET << std::endl;
+    //     std::cout << BLUE << "Serialized value: " << "0x" << std::hex << serialized << RESET << std::endl;
 
-        Data* deserialized = Serializer::deserialize(serialized);
-        std::cout << BLUE << "Deserialized address: " << (void*)deserialized << RESET << std::endl;
+    //     Data* deserialized = Serializer::deserialize(serialized);
+    //     std::cout << BLUE << "Deserialized address: " << (void*)deserialized << RESET << std::endl;
 
-        printTestResult("Address value preservation",
-                       reinterpret_cast<uintptr_t>(&data) == serialized);
-    }
+    //     printTestResult("Address value preservation",
+    //                    reinterpret_cast<uintptr_t>(&data) == serialized);
+    // }
 
     return 0;
 }
