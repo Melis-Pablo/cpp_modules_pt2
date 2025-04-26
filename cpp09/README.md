@@ -5,7 +5,7 @@
 
 >[!note]
 >Summary: This document contains the exercises of Module 09 from C++ modules.
->Version: 2.2
+>Version: 2.3
 
 ## 0. Contents
 ---
@@ -23,8 +23,8 @@
 
 C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or "C with Classes" (source: [Wikipedia](https://en.wikipedia.org/wiki/C++)).
 
-The goal of these modules is to introduce you to **Object-Oriented Programming**. This will be the starting point of your C++ journey. Many languages are recommended to learn OOP. We decided to choose C++ since it’s derived from your old friend C. Because this is a complex language, and in order to keep things simple, your code will comply with the C++98 standard.
-We are aware modern C++ is way different in a lot of aspects. So if you want to become a proficient C++ developer, it’s up to you to go further after the 42 Common Core!
+The goal of these modules is to introduce you to **Object-Oriented Programming**. This will be the starting point of your C++ journey. Many languages are recommended to learn OOP. We decided to choose C++ since it's derived from your old friend C. Because this is a complex language, and in order to keep things simple, your code will comply with the C++98 standard.
+We are aware modern C++ is way different in a lot of aspects. So if you want to become a proficient C++ developer, it's up to you to go further after the 42 Common Core!
 
 ## 2. General Rules
 ---
@@ -39,16 +39,16 @@ We are aware modern C++ is way different in a lot of aspects. So if you want to 
 - The exercise directories will be named this way: ex00, ex01, ... , exn
 - Name your files, classes, functions, member functions and attributes as required in the guidelines.
 - Write class names in **UpperCamelCase** format. Files containing class code will always be named according to the class name. For instance: ClassName\.hpp/ClassName.h, ClassName.cpp, or ClassName.tpp. Then, if you have a header file containing the definition of a class "BrickWall" standing for a brick wall, its name will be BrickWall.hpp.
-- Unless specified otherwise, every output messages must be ended by a new-line character and displayed to the standard output.
-- *Goodbye Norminette!* No coding style is enforced in the C++ modules. You can follow your favorite one. But keep in mind that a code your peer-evaluators can’t understand is a code they can’t grade. Do your best to write a clean and readable code.
+- Unless specified otherwise, every output message must end with a newline character and be displayed to the standard output.
+- *Goodbye Norminette!* No coding style is enforced in the C++ modules. You can follow your favorite one. But keep in mind that code your peer evaluators can't understand is code they can't grade. Do your best to write a clean and readable code.
 
 **Allowed/Forbidden**
 
 You are not coding in C anymore. Time to C++! Therefore:
-- You are allowed to use almost everything from the standard library. Thus, instead of sticking to what you already know, it would be smart to use as much as possible the C++-ish versions of the C functions you are used to.
-- However, you can’t use any other external library. It means C++11 (and derived forms) and Boost libraries are forbidden. The following functions are forbidden too: \*printf(), \*alloc() and free(). If you use them, your grade will be 0 and that’s it.
+- You are allowed to use almost everything from the standard library. Thus, instead of sticking to what you already know, it would be smart to use the C++-ish versions of the C functions you are used to as much as possible.
+- However, you can't use any other external library. It means C++11 (and derived forms) and Boost libraries are forbidden. The following functions are forbidden too: \*printf(), \*alloc() and free(). If you use them, your grade will be 0 and that's it.
 - Note that unless explicitly stated otherwise, the using namespace <ns_name> and friend keywords are forbidden. Otherwise, your grade will be -42.
-- You are allowed to use the STL in the Module 08 and 09 only. That means: no Containers (vector/list/map/and so forth) and no Algorithms (anything that requires to include the \<algorithm> header) until then. Otherwise, your grade will be -42.
+- You are allowed to use the STL only in Modules 08 and 09. That means: no Containers (vector/list/map, and so forth) and no Algorithms (anything that requires including the \<algorithm> header) until then. Otherwise, your grade will be -42.
 
 **A few design requirements**
 
@@ -68,10 +68,10 @@ You are not coding in C anymore. Time to C++! Therefore:
 >Regarding the Makefile for C++ projects, the same rules as in C apply (see the Norm chapter about the Makefile).
 
 >[!tip]
->You will have to implement a lot of classes. This can seem tedious, unless you’re able to script your favorite text editor.
+>You will have to implement a lot of classes. This can seem tedious, unless you're able to script your favorite text editor.
 
 >[!note]
->You are given a certain amount of freedom to complete the exercises. However, follow the mandatory rules and don’t be lazy. You would miss a lot of useful information! Do not hesitate to read about theoretical concepts.
+>You are given a certain amount of freedom to complete the exercises. However, follow the mandatory rules and don't be lazy. You would miss a lot of useful information! Do not hesitate to read about theoretical concepts.
 
 ## 3. Module-specific rules
 ---
@@ -111,7 +111,7 @@ Your program must respect these rules:
 
 - The program name is btc.
 
-- Your program must take a file as argument.
+- Your program must take a file as an argument.
 
 - Each line in this file must use the following format: "date | value".
 
@@ -194,9 +194,9 @@ You must create a program with these constraints:
 >You must use at least one container in your code to validate this exercise.
 
 >[!note]
->You don’t need to manage the brackets or decimal numbers.
+>You don't need to handle brackets or decimal numbers.
 
-Here is an example of a standard use:
+Here is an example of standard usage:
 ```sh
 $> ./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
 42
@@ -225,7 +225,7 @@ You must create a program with these constraints:
 
 - The name of the program is PmergeMe.
 
-- Your program must be able to use a positive integer sequence as argument.
+- Your program must be able to use a positive integer sequence as an argument.
 
 - Your program must use the merge-insert sort algorithm to sort the positive integer sequence.
 
@@ -246,21 +246,21 @@ Here are some additional guidelines on the information you should display line b
 
 - On the second line you must display an explicit text followed by the sorted positive integer sequence.
 
-- On the third line you must display an explicit text indicating the time used by your algorithm by specifying the first container used to sort the positive integer sequence.
+- On the third line, you must display an explicit message indicating the time taken by your algorithm, specifying the first container used to sort the positive integer sequence.
 
 - On the last line you must display an explicit text indicating the time used by your algorithm by specifying the second container used to sort the positive integer sequence.
 
 >[!note]
 >The format for the display of the time used to carry out your sorting is free but the precision chosen must allow to clearly see the difference between the two containers used.
 
-Here is an example of a standard use:
+Here is an example of standard use:
 ```sh
 $> ./PmergeMe 3 5 9 7 4
 Before: 3 5 9 7 4
 After: 3 4 5 7 9
 Time to process a range of 5 elements with std::[..] : 0.00031 us
 Time to process a range of 5 elements with std::[..] : 0.00014 us
-$> ./PmergeMe`shuf -i 1-100000 -n 3000 | tr "\n" " "`
+$> ./PmergeMe `shuf -i 1-100000 -n 3000 | tr "\n" " "`
 Before: 141 79 526 321 [...]
 After: 79 141 321 526 [...]
 Time to process a range of 3000 elements with std::[..] : 62.14389 us
@@ -268,7 +268,7 @@ Time to process a range of 3000 elements with std::[..] : 69.27212 us
 $> ./PmergeMe "-1" "2"
 Error
 $> # For OSX USER:
-$> ./PmergeMe`jot -r 3000 1 100000 | tr'\n' ' '`
+$> ./PmergeMe `jot -r 3000 1 100000 | tr'\n' ' '`
 [...]
 $>
 ```
@@ -285,4 +285,4 @@ $>
 ## 7. Submission and peer-evaluation
 ---
 
-Turn in your assignment in your Git repository as usual. Only the work inside your repository will be evaluated during the defense. Don’t hesitate to double check the names of your folders and files to ensure they are correct.
+Turn in your assignment in your Git repository as usual. Only the work inside your repository will be evaluated during the defense. Don't hesitate to double check the names of your folders and files to ensure they are corr
