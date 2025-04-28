@@ -1,11 +1,12 @@
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 
-#include <map>
-#include <string>
-#include <iostream>
-#include <fstream>
+#include <map> // For std::map
+#include <string> // For std::string
+#include <iostream> // For std::cout
+#include <fstream> // For file operations
 #include <cstdlib> // For atof
+#include <cctype> // For isdigit
 
 class BitcoinExchange {
     private:
@@ -28,7 +29,7 @@ class BitcoinExchange {
         // Custom exceptions
         class FileOpenException : public std::exception {
             public:
-                const char *what() const throw() { return "Error: could not open file."; }
+                const char *what() const throw();
         };
 };
 

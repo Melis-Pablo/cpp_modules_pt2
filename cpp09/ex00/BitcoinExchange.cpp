@@ -1,5 +1,4 @@
 #include "BitcoinExchange.hpp"
-#include <cctype> // For isdigit
 
 // Canonical form
 BitcoinExchange::BitcoinExchange() {
@@ -159,4 +158,9 @@ bool BitcoinExchange::isValidDate(const std::string &date) const {
 
 bool BitcoinExchange::isValidValue(const float value) const {
     return (value >= 0 && value <= 1000);
+}
+
+// Custom exceptions
+const char *BitcoinExchange::FileOpenException::what() const throw() {
+    return "Error: could not open file.";
 }

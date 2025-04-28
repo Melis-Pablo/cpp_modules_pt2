@@ -26,11 +26,11 @@ int main(int argc, char **argv) {
 
         if (argc != 2) {
             std::cout << "Usage: " << argv[0] << " [input_file]" << std::endl;
-            std::cout << "Running default test with 'input.csv'" << std::endl;
+            std::cout << "Running default test with 'input.txt'" << std::endl;
 
             try {
                 BitcoinExchange exchange;
-                exchange.processInputFile("input.csv");
+                exchange.processInputFile("input.txt");
                 printTestResult("Process Input File", true);
             } catch (const std::exception& e) {
                 std::cout << BLUE << "Exception: " << e.what() << RESET << std::endl;
