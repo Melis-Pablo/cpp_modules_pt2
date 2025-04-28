@@ -46,12 +46,12 @@ class PmergeMe {
         // Custom exceptions
         class NegativeNumberException : public std::exception {
             public:
-                const char *what() const throw() { return "Error: Negative number in sequence."; }
+                const char *what() const throw();
         };
 
         class InvalidNumberException : public std::exception {
             public:
-                const char *what() const throw() { return "Error: Invalid number in sequence."; }
+                const char *what() const throw();
         };
 };
 

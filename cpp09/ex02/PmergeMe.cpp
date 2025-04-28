@@ -263,3 +263,12 @@ void PmergeMe::displayResults(double vecTime, double listTime) {
     std::cout << "Time to process a range of " << _list.size() << " elements with std::list : "
               << listTime << " us" << std::endl;
 }
+
+// Custom exception for negative numbers
+const char *PmergeMe::NegativeNumberException::what() const throw() {
+    return "Negative numbers are not allowed.";
+}
+// Custom exception for invalid numbers
+const char *PmergeMe::InvalidNumberException::what() const throw() {
+    return "Invalid number format.";
+}
