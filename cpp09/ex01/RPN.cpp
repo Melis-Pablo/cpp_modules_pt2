@@ -1,7 +1,4 @@
 #include "RPN.hpp"
-#include <cctype>
-#include <sstream>
-#include <cstdlib>
 
 // Canonical form
 RPN::RPN() {}
@@ -88,4 +85,9 @@ int RPN::performOperation(int a, int b, char op) const {
         default:
             throw SyntaxErrorException();
     }
+}
+
+// Custom exceptions
+const char *RPN::SyntaxErrorException::what() const throw() {
+    return "Syntax error in RPN expression";
 }

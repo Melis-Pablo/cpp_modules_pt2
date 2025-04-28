@@ -1,9 +1,13 @@
 #ifndef RPN_HPP
 #define RPN_HPP
 
-#include <stack>
-#include <string>
-#include <exception>
+#include <stack> // For stack operations
+#include <string> // For string operations
+#include <exception> // For exception handling
+#include <cctype> // For character classification
+#include <sstream> // For string stream operations
+#include <cstdlib> // For atoi
+#include <iostream> // For input/output operations
 
 class RPN {
     private:
@@ -26,7 +30,7 @@ class RPN {
         // Custom exceptions
         class SyntaxErrorException : public std::exception {
             public:
-                const char *what() const throw() { return "Error"; }
+                const char *what() const throw();
         };
 };
 

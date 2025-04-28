@@ -1,6 +1,4 @@
 #include "RPN.hpp"
-#include <iostream>
-#include <string>
 
 // Color definitions as per the Testing Framework
 #define RESET   "\033[0m"
