@@ -5,11 +5,22 @@
 #include <cmath>
 #include <utility>
 
+// Color definitions as per the Testing Framework
+#define RESET   "\033[0m"
+#define RED     "\033[31m"      // Failed tests
+#define GREEN   "\033[32m"      // Passed tests
+#define YELLOW  "\033[33m"      // Section headers
+#define BLUE    "\033[34m"      // Expected exceptions/warnings
+#define CYAN    "\033[36m"      // Informational output
+
 // Canonical form
-PmergeMe::PmergeMe() {}
+PmergeMe::PmergeMe() {
+    std::cout << RED << "=== STARTED PMERGEME ===" << RESET << std::endl;
+}
 
 PmergeMe::PmergeMe(const PmergeMe &rhs) {
     *this = rhs;
+    std::cout << RED << "=== COPY CONSTRUCTED PMERGEME ===" << RESET << std::endl; 
 }
 
 PmergeMe &PmergeMe::operator=(const PmergeMe &rhs) {
@@ -18,15 +29,19 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &rhs) {
         _list = rhs._list;
         _unsortedVec = rhs._unsortedVec;
     }
+    std::cout << RED << "=== ASSIGNMENT OPERATOR PMERGEME ===" << RESET << std::endl;
     return *this;
 }
 
-PmergeMe::~PmergeMe() {}
+PmergeMe::~PmergeMe() {
+    std::cout << RED << "=== STOPPED PMERGEME ===" << RESET << std::endl;
+}
 
 // Helper function to get microseconds
 double getTimeInMicroseconds() {
     struct timeval tv;
     gettimeofday(&tv, NULL);
+    std::cout << BLUE << "Getting Time:" << RESET << (tv.tv_sec * 1000000 + tv.tv_usec) << std::endl;
     return tv.tv_sec * 1000000 + tv.tv_usec;
 }
 
@@ -34,6 +49,7 @@ double getTimeInMicroseconds() {
 void PmergeMe::mergeSortInsertVector(std::vector<int>& vec) {
     // Base case: Empty or single element is already sorted
     if (vec.size() <= 1) {
+        std::cout << RED << "=== UNSORTABLE: 0-1 ITEMS ===" << RESET << std::endl;
         return;
     }
 
@@ -45,6 +61,7 @@ void PmergeMe::mergeSortInsertVector(std::vector<int>& vec) {
     if (hasOddElement) {
         oddElement = vec.back();
         vec.pop_back();
+        std::cout << CYAN << "=== CONTAINER HAS ODD ELEMENTS ===" << RESET << oddElement << std::endl;
     }
 
     for (size_t i = 0; i < vec.size(); i += 2) {
@@ -203,9 +220,11 @@ bool PmergeMe::processInput(int argc, char **argv) {
 double PmergeMe::measureVectorSort(const std::vector<int>& input) {
     std::vector<int> testVec = input;
 
+    std::cout << std::endl << YELLOW << "=== " << "STARTED VECTOR MODE" << " ===" << RESET << std::endl;
     double startTime = getTimeInMicroseconds();
     mergeSortInsertVector(testVec);
     double endTime = getTimeInMicroseconds();
+    std::cout << std::endl << YELLOW << "=== " << "FINISHED VECTOR MODE" << " ===" << RESET << std::endl;
 
     _vec = testVec; // Store the sorted result
 
@@ -216,9 +235,11 @@ double PmergeMe::measureVectorSort(const std::vector<int>& input) {
 double PmergeMe::measureListSort(const std::list<int>& input) {
     std::list<int> testList = input;
 
+    std::cout << std::endl << YELLOW << "=== " << "STARTED LIST MODE" << " ===" << RESET << std::endl;
     double startTime = getTimeInMicroseconds();
     mergeSortInsertList(testList);
     double endTime = getTimeInMicroseconds();
+    std::cout << std::endl << YELLOW << "=== " << "FINISHED LIST MODE" << " ===" << RESET << std::endl;
 
     _list = testList; // Store the sorted result
 
@@ -237,10 +258,12 @@ void PmergeMe::displaySequence(const std::vector<int>& seq) {
 void PmergeMe::sortAndMeasure() {
     // Convert vector to list for initial list
     _list.clear();
+    std::cout << BLUE << "=== CLEARED LIST ===" << RESET << std::endl;
+    std::cout << BLUE << "=== FILLED LIST ===" << RESET << std::endl;
     _list.insert(_list.end(), _unsortedVec.begin(), _unsortedVec.end());
 
     // Display before state
-    std::cout << "Before: ";
+    std::cout << BLUE << "=== BEFORE ===" << RESET << std::endl;
     displaySequence(_unsortedVec);
 
     // Sort and measure
@@ -248,7 +271,7 @@ void PmergeMe::sortAndMeasure() {
     double listTime = measureListSort(_list);
 
     // Display after state
-    std::cout << "After: ";
+    std::cout << BLUE << "=== AFTER ===" << RESET << std::endl;
     displaySequence(_vec);
 
     // Display timing results
@@ -258,17 +281,19 @@ void PmergeMe::sortAndMeasure() {
 // Display timing results
 void PmergeMe::displayResults(double vecTime, double listTime) {
     std::cout << std::fixed << std::setprecision(5);
-    std::cout << "Time to process a range of " << _vec.size() << " elements with std::vector : "
-              << vecTime << " us" << std::endl;
-    std::cout << "Time to process a range of " << _list.size() << " elements with std::list : "
-              << listTime << " us" << std::endl;
+    std::cout << BLUE << "Time to process a range of " << _vec.size() << " elements with std::vector : "
+              << RESET << vecTime << " us" << std::endl;
+    std::cout << BLUE << "Time to process a range of " << _list.size() << " elements with std::list : "
+              << RESET << listTime << " us" << std::endl;
 }
 
 // Custom exception for negative numbers
 const char *PmergeMe::NegativeNumberException::what() const throw() {
-    return "Negative numbers are not allowed.";
+    std::cout << BLUE << "=== Negative numbers are not allowed. ===" << RESET << std::endl;
+    return "";
 }
 // Custom exception for invalid numbers
 const char *PmergeMe::InvalidNumberException::what() const throw() {
-    return "Invalid number format.";
+    std::cout << BLUE << "=== Invalid number format. ===" << RESET << std::endl;
+    return "";
 }
